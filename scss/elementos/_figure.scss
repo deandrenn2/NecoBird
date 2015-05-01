@@ -1,0 +1,25 @@
+
+
+
+
+/*------------------------------------*\
+    $ELEMENTOS-FIGURE
+\*------------------------------------*/
+figure {
+	margin-bottom : $baselineheight;
+	text-align: center;
+	border: 3px solid $darkgrey;
+	padding: $baselineheight;
+
+	img {
+		margin-bottom : $baselineheight / 4;
+	}
+
+	figcaption {
+		display : block;
+		font-weight : normal;
+		font-size: fs(small);
+		font-style : italic;
+		color : $grey;
+	}
+}

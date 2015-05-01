@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $SETTINGS
+\*------------------------------------*/
+/*------------------------------------*\
+    $OBJETOS Y ABSTRACCIONES
+\*------------------------------------*/
+/**
+ * Qu├® objetos y abstracciones vamos a usar? (true: se usa, false: no se usa)
+ */
+/**
+ *
+ * Definimos y configuramos las variables CSS que vamos a utilizar
+ *
+ */
+/*------------------------------------*\
+    $BREAKPOINTS
+\*------------------------------------*/
+/**
+ * "Start with the small screen first, then expand until it looks like shit. Time to insert a breakpoint!"
+ * Lo usamos con el mixin respond-to($breakpoint):
+
+.text {
+  color: pink;
+  @include respond-to(medium) {
+    color: maroon;
+  }
+}
+ *
+ */
+/*------------------------------------*\
+    $Z-INDEX  
+\*------------------------------------*/
+/**
+ * Podemos controlar los z-index con variables m├ís reconocibles.
+ * Para usarlo, implementamos la funci├│n z($layers):
+ .element {
+  z-index: z(goku);
+ }
+ *
+ */
+/*------------------------------------*\
+    $IMAGE-DIR
+\*------------------------------------*/
+/**
+ * Con agregar esta variable a las im├ígenes declaradas en CSS apa├▒amos:
+ */
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+/**
+ * Definimos elementos constantes del layout
+ */
+/*------------------------------------*\
+    $grid
+\*------------------------------------*/
+/*------------------------------------*\
+    $FONT-FACE
+\*------------------------------------*/
+/**
+ * Definimos las fuentes a utilizar:
+ * $basefont para todos los textos inline
+ * $altfont para textos alternativos, como citas, intro, etc...
+ * $codefont para c├│digo
+ */
+/*------------------------------------*\
+    $TAMA├æOS
+\*------------------------------------*/
+/**
+ * Definimos los tama├▒os de fuentes:
+ 
+ */
+/*
+ * Las variables de tama├▒o las definimos en un MAP, puedes a├▒adir, quitar o cambiarlas.
+ * Vienen dadas en REM. Esto crear├í una clase con el mismo nombre de la variable:
+
+  .x-small { font-size: .8rem}
+ 
+ * Tambi├®n podemos asignar tama├▒os con un funci├│n llamada fs:
+
+    .selector { font-size: fs(x-small);} 
+
+ *
+ */
+/*------------------------------------*\
+    $COLORS
+\*------------------------------------*/
+/**
+ * Brand stuff
+ */
+/**
+ * Escala de grises
+ * A veces no queremos que el negro sea "negro" o el blanco "blanco", puedes cambiarlos.
+ */
+/*------------------------------------*\
+    $TEXTURAS
+\*------------------------------------*/
+/**
+ * Definimos Colores y elementos de popups, mensajes de alerta, etc...
+ */
+/* Colores sociales -> son los colores corporativos, pero cambiadlos
+ * si hace falta. (tambi├®n pod├®is a├▒adir m├ís)  ///////////////////////
+ */
+
+/*# sourceMappingURL=settings.css.map */
