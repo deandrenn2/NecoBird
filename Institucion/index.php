@@ -10,15 +10,27 @@
 		<h1><?php bloginfo('name')?></h1>
 		<h2><?php bloginfo('description') ?></h2>
 		</div>
-			<ul>
-				<li><?php bloginfo('wpurl') ?></li>
-				<li><?php bloginfo('adminemail') ?></li>
-				<li><?php bloginfo('charset') ?></li>
-				<li><?php bloginfo('version') ?></li>
-				<li><?php bloginfo('html_type') ?></li>
-				<li><?php bloginfo('stylesheet_url') ?></li>
-				<li><?php bloginfo('stylesheet_directory') ?></li>
-			</ul>
+			<section class="content">
+				<?php rewind_posts(); ?>
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<article>
+					<h3><?php the_title(); ?> </h3>
+					<p><?php the_excerpt(); ?> </p>
+					<ul>
+						<li><?php the_category(); ?> </li>
+						<li><?php the_author(); ?></li>
+						<li><?php the_time(); ?></li>
+						<li><?php the_date(); ?></li>
+					</ul>
+				</article>				
+				<?php endwhile; ?>
+				
+				<?php else: ?>
+				<!-- no posts found -->
+				<h3>No hay contenido para mostrar</h3>
+				<?php endif; ?>
+				
+			</section>
 	</body>
 
 </html>
