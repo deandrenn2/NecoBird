@@ -122,12 +122,24 @@ aside {
 
 .content {
 	padding: $gutterwidth / 2;
-	@include repond-to(small){
+	@include respond-to(small){
 		article{
 			display: inline-block;
 			width: 30%;
 		}
 	}
+}
 
+.sidebar{
+	display: table;
+}
 
+.sidebar__item{
+	display: table-cell;
+	padding: $gutterwidth;
+	a {
+		&::before{
+			content:"| ";
+		}
+	}
 }

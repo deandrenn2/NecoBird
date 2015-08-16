@@ -859,10 +859,19 @@ aside {
 
 .content {
   padding: 12px; }
-  @media (min-width: 600px) {
+  @media (min-width: 48em) {
     .content article {
       display: inline-block;
       width: 30%; } }
+
+.sidebar {
+  display: table; }
+
+.sidebar__item {
+  display: table-cell;
+  padding: 24px; }
+  .sidebar__item a::before {
+    content: "| "; }
 
 /*------------------------------------*\
     $NAVEGACI├ôN
@@ -887,74 +896,24 @@ aside {
 
 * Y no te olvides de modificar las variables en el archivo de variables ($nav-**)
 */
-.nav--top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 44px;
-  height: 52.8px;
-  color: white;
-  overflow: hidden;
-  cursor: pointer;
-  /**
-   * Place a hamburger (donÔÇÖt hate the player, hate the game...) icon
-   * over the top of our nav element.
-   */ }
-  .nav--top:after {
-    content: "Ôÿ░";
-    font-size: 16px;
-    width: 1em;
-    line-height: 1;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -8px;
-    margin-left: -8px; }
-
-.nav--top__list {
+.nav__list {
   list-style: none;
   margin: 0;
   padding: 0;
-  padding-top: 52.8px;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #dbd879;
   box-shadow: inset -100px -50px 100px 100px rgba(0, 0, 0, 0.2);
   /*
   * Usamos VW porque con % tomar├¡a el tama├▒o del contenedor,
   * que es $nav-width (unos 48px) y no se ve na' e n├í
   */
-  width: 200px;
-  z-index: -1; }
-
-.checkbox__hack {
-  display: none;
- /*
-  * Quitamos el overflow:hidden para que se muestre el men├║ cuando
-* el checkbox est├í :checked
-  * Eso es todo, un overflow. Con eso mostramos u ocultamos el men├║.
-  * (Eso y el content del after para que sea una X y no la hamburguesa)
-  */ }
-  .checkbox__hack:checked ~ .nav--top {
-    overflow: visible; }
-    .checkbox__hack:checked ~ .nav--top::after {
-      content: "x"; }
-
-.checkbox-hack__label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  height: 52.8px;
-  color: white;
-  overflow: hidden;
-  cursor: pointer;
-  margin: 0;
-  z-index: 100; }
+  width: 100%; }
+  .nav__list li {
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px olive;
+    text-align: center; }
+    .nav__list li a {
+      color: black; }
 
 /**
 * Abstracciones y objetos

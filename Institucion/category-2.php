@@ -1,15 +1,6 @@
-<?php get_header('blog'); ?>
-		<body class="blog">
-			<?php include (TEMPLATEPATH . "/template/nav.php");?>
-		<div class="header">
-		<h1><?php bloginfo('name')?></h1>
-		<h2><?php bloginfo('description') ?></h2>
-		</div>
-		<div class="sidebar">
-		<?php dynamic_sidebar('sidebar-header'); ?>
-		</div>
-			<section class="content">
-				<?php rewind_posts(); ?>
+	<?php get_header("noticias"); ?>
+		<section class="page">
+			<p>Deimer</p>
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<article>
 					<a href="<?php the_permalink(); ?>"> <h3> <?php the_title(); ?> </h3></a>
@@ -32,7 +23,3 @@
 				<?php endif; ?>
 				
 			</section>
-			<div class="sidebar">
-			<?php dynamic_sidebar('sidebar-footer'); ?>
-			<div>
-<?php get_footer('personalizado'); ?>
