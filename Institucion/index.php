@@ -1,14 +1,12 @@
-<?php get_header('blog'); ?>
-		<body class="blog">
-			<?php include (TEMPLATEPATH . "/template/nav.php");?>
-		<div class="header">
-		<h1><?php bloginfo('name')?></h1>
-		<h2><?php bloginfo('description') ?></h2>
-		</div>
-		<div class="sidebar">
-		<?php dynamic_sidebar('sidebar-header'); ?>
-		</div>
-			<section class="content">
+<?php get_header(); ?>
+		<body class="blog">			
+	               <?php include (TEMPLATEPATH . "/template/header.php");?>
+             <?php include (TEMPLATEPATH . "/template/carousel.php");?>
+            		
+		
+	
+			<section class="container marketing">
+                <h1><?php bloginfo('name')?></h1>
 				<?php rewind_posts(); ?>
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<article>
@@ -31,8 +29,11 @@
 				<h3>No hay contenido para mostrar</h3>
 				<?php endif; ?>
 				
-			</section>
-			<div class="sidebar">
-			<?php dynamic_sidebar('sidebar-footer'); ?>
-			<div>
+		
+            <hr class="featurette-divider">
+            <footer>
+                <?php dynamic_sidebar('sidebar-footer'); ?>
+            </footer>
+                	</section>
+			
 <?php get_footer('personalizado'); ?>

@@ -1,4 +1,6 @@
 	<?php get_header("noticias"); ?>
+         <?php include (TEMPLATEPATH . "/template/header.php");?>
+            		<h1><?php bloginfo('name')?></h1>
 		<section class="page">
 			<p>Deimer</p>
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

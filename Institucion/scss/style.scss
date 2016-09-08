@@ -1,0 +1,26 @@
+/*
+theme name: Necobird
+theme URI: http://sinai.net.co
+Author:Deimer Andres Nu&ntilde;ez Novoa
+Author Uri: http://necobird.com
+Description: Tema adaptivo dise&ntilde;ado con html, javascript y bootstrap
+*/
+
+
+
+
+/*------------------------------------*\
+    $STYLE
+\*------------------------------------*/
+/**
+ * Aquí incluímos todos los módulos (archivos .scss) que se van
+ * a compilar en el CSS definitivo: /css/style.css.
+ */
+
+/**
+* Bases
+**/
+@import "bootstrap_carousel.scss";
+@import "menu.scss";
+
+

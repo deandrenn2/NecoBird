@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /*
-theme name: Livian
+theme name: Necobird
 theme URI: http://sinai.net.co
-Author:Deimer Andres Nu├▒ez Novoa
-Author Uri: http://siempre.net.co
-Description: Tema desarrollado por Deimer, como mi primer tema de wordpress, que ira mejorando a medida que pasa el tiempo;
+Author:Deimer Andres Nu&ntilde;ez Novoa
+Author Uri: http://necobird.com
+Description: Tema adaptivo dise&ntilde;ado con html, javascript y bootstrap
 */
 /*------------------------------------*\
     $STYLE
@@ -14,1278 +14,173 @@ Description: Tema desarrollado por Deimer, como mi primer tema de wordpress, que
  * a compilar en el CSS definitivo: /css/style.css.
  */
 /**
-* Librer├¡as
-**/
-/*------------------------------------*\
-    $SETTINGS
-\*------------------------------------*/
-/*------------------------------------*\
-    $OBJETOS Y ABSTRACCIONES
-\*------------------------------------*/
-/**
- * Qu├® objetos y abstracciones vamos a usar? (true: se usa, false: no se usa)
- */
-/**
- *
- * Definimos y configuramos las variables CSS que vamos a utilizar
- *
- */
-/*------------------------------------*\
-    $BREAKPOINTS
-\*------------------------------------*/
-/**
- * "Start with the small screen first, then expand until it looks like shit. Time to insert a breakpoint!"
- * Lo usamos con el mixin respond-to($breakpoint):
-
-.text {
-  color: pink;
-  @include respond-to(medium) {
-    color: maroon;
-  }
-}
- *
- */
-/*------------------------------------*\
-    $Z-INDEX  
-\*------------------------------------*/
-/**
- * Podemos controlar los z-index con variables m├ís reconocibles.
- * Para usarlo, implementamos la funci├│n z($layers):
- .element {
-  z-index: z(goku);
- }
- *
- */
-/*------------------------------------*\
-    $IMAGE-DIR
-\*------------------------------------*/
-/**
- * Con agregar esta variable a las im├ígenes declaradas en CSS apa├▒amos:
- */
-/*------------------------------------*\
-    $LAYOUT
-\*------------------------------------*/
-/**
- * Definimos elementos constantes del layout
- */
-/*------------------------------------*\
-    $grid
-\*------------------------------------*/
-/*------------------------------------*\
-    $FONT-FACE
-\*------------------------------------*/
-/**
- * Definimos las fuentes a utilizar:
- * $basefont para todos los textos inline
- * $altfont para textos alternativos, como citas, intro, etc...
- * $codefont para c├│digo
- */
-/*------------------------------------*\
-    $TAMA├æOS
-\*------------------------------------*/
-/**
- * Definimos los tama├▒os de fuentes:
- 
- */
-/*
- * Las variables de tama├▒o las definimos en un MAP, puedes a├▒adir, quitar o cambiarlas.
- * Vienen dadas en REM. Esto crear├í una clase con el mismo nombre de la variable:
-
-  .x-small { font-size: .8rem}
- 
- * Tambi├®n podemos asignar tama├▒os con un funci├│n llamada fs:
-
-    .selector { font-size: fs(x-small);} 
-
- *
- */
-/*------------------------------------*\
-    $COLORS
-\*------------------------------------*/
-/**
- * Brand stuff
- */
-/**
- * Escala de grises
- * A veces no queremos que el negro sea "negro" o el blanco "blanco", puedes cambiarlos.
- */
-/*------------------------------------*\
-    $TEXTURAS
-\*------------------------------------*/
-/**
- * Definimos Colores y elementos de popups, mensajes de alerta, etc...
- */
-/* Colores sociales -> son los colores corporativos, pero cambiadlos
- * si hace falta. (tambi├®n pod├®is a├▒adir m├ís)  ///////////////////////
- */
-/*------------------------------------*\
-    $MIXINS
-\*------------------------------------*/
-/*
-* F├ícil de usar: las variables a usar est├ín en settings.scss y son:
-
-    'small'  : 48em,
-    'medium' : 56.25em,
-    'large'  : 68.75em,
-
-* Y el uso va como sigue:
-
-.foo {
-  color: red;
-  @include respond-to('small') {
-    color: blue;
-  }
-}
-*/
-/**
-* Centrar y dar un ancho m├íximo igual a $pagemaxwidth.
-*/
-/*------------------------------------*\
-    $FUNCIONES
-\*------------------------------------*/
-/*
- * Funci├│n para controlar el index
- 
- 	.selector { z-index: z(goku);}
-
- * compila:
-
-	.selector { z-index: 9001;}
-
- * Puedes ver las variables en el MAP en settings.scss
- */
-/*
- * Funci├│n para mantener el tama├▒o de fuente consistente
-
- .selector { font-size: fs(x-small);}
-
- * Puedes ver en settings.scss las variables que se utilizan.
- */
-/*------------------------------------*\
-    $PLACEHOLDERS
-\*------------------------------------*/
-/**
-* The ghost, nudged to maintain perfect centering
-*/
-/**
-* Escondemos el texto solo VISUALMENTE
-*/
-/**
-* Escondemos el texto de VISUALMENTE y SCREENREADERS
-*/
-/**
-* Escondemos pero mantenemos layout.
-*/
-/**
-* Visualmente escondido, pero se puede detectar con teclado (focus).
-*/
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  position: static;
-  clip: auto;
-  height: auto;
-  width: auto;
-  margin: 0;
-  overflow: visible; }
-
-/**
-* Clear floats.
-* http://bit.ly/1e3YaBH
-*/
-/**
 * Bases
 **/
-/*------------------------------------*\
-    $CONTENIDO
-\*------------------------------------*/
-/**
- * Contenido..................... Esto que lees
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a; }
 
- * Variables..................... Configuramos todas las variables del framework
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20; }
 
- * Mixins........................ Mixins de SASS
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0; }
 
- * Helpers....................... Clases de ayuda
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px; }
 
- * Reset......................... Reinicio de valores CSS
+.navbar-wrapper .navbar .container {
+  width: auto; }
 
- * Fuentes....................... Fuentes que vamos a importar
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px; }
 
- * Links......................... Formas y estilos de los links
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10; }
 
- * Tablas........................ Estilos de las tablas
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777; }
 
- * Botones....................... Estilos de Botones, skins y variantes
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px; }
 
- * Elementos..................... Elementos varios como Imagen, HR, etc...
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center; }
 
- * Tipograf├¡a.................... Encabezados, small, p├írrafos, listas, etc...
-
- * Navegaci├│n.................... Una navegaci├│n, por si quieres usar esta y no la tuya propia
-
- * Formularios................... Estilos de todos los elementos de formularios y sus variantes
-
- * Sitio......................... Aqu├¡ escribes tus estilos para la web se vea como t├║ quieres ;)
-
- * Paginaci├│n.................... Estilos b├ísicos para las paginaciones
-
- * Texturas...................... Badges, cajas y wells
-
- * Breakpoints................... Importamos breakpoints basados en las variables @bp$
-
- * Patron........................ Estilos para la gu├¡a de patrones
- */
-/*------------------------------------*\
-    $RESET
-\*------------------------------------*/
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, main, menu, nav, section, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block; }
-
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box; }
-
-img {
-  max-width: 100%;
-  border-width: 0;
-  vertical-align: middle;
-  -ms-interpolation-mode: bicubic;
-  height: auto; }
-
-/**
-* Selectores de elemento: un super "normalize":
-**/
-/*------------------------------------*\
-    $ELEMENTOS-FIGURE
-\*------------------------------------*/
-figure {
-  margin-bottom: 1.5em;
-  text-align: center;
-  border: 3px solid #404040;
-  padding: 1.5em; }
-  figure img {
-    margin-bottom: 0.375em; }
-  figure figcaption {
-    display: block;
-    font-weight: normal;
-    font-size: 0.9rem;
-    font-style: italic;
-    color: gray; }
-
-/*------------------------------------*\
-    $FORMULARIOS
-\*------------------------------------*/
-form {
-  margin: 0 0 1.5em 0; }
-  form fieldset {
-    margin-bottom: 1.5em;
-    padding: 0;
-    border-width: 0; }
-  form legend {
-    display: block;
-    width: 100%;
-    margin-bottom: 3em;
-    padding: 0;
-    color: #262626;
-    border: 0;
-    border-bottom: 1px solid #bfbfbf;
-    white-space: normal; }
-    form legend small {
-      font-size: 0.8rem;
-      color: #bfbfbf; }
-  form p {
-    margin-bottom: 0.75em; }
-  form ul {
-    list-style-type: none;
-    margin: 0 0 1.5em 0;
-    padding: 0; }
-  form br {
-    display: none; }
-
-label,
-input,
-button,
-select,
-textarea {
-  font-size: 0.9rem;
-  border-radius: 2px;
-  vertical-align: baseline;
-  *vertical-align: middle; }
-
-input,
-button,
-select,
-textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box; }
-
-label {
-  display: block;
-  margin-bottom: 0.1875em;
-  font-weight: bold;
-  color: #262626;
-  cursor: pointer; }
-  label input,
-  label textarea,
-  label select {
-    display: block; }
-
-input,
-textarea,
-select {
-  display: inline-block;
-  width: 100%;
-  padding: 4px;
-  margin-bottom: 0.375em;
-  background-color: white;
-  border: 1px solid #bfbfbf;
-  color: #262626; }
-  input:hover,
-  textarea:hover,
-  select:hover {
-    border-color: gray; }
-
-.input-mini {
-  width: 60px; }
-
-.input-small {
-  width: 90px; }
-
-input[type="image"],
-input[type="checkbox"],
-input[type="radio"] {
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin: 3px 0;
-  *margin-top: 0;
-  line-height: normal;
-  cursor: pointer;
-  border: 0 \9; }
-
-input[type="checkbox"],
-input[type="radio"] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0;
-  *width: 13px;
-  *height: 13px; }
-
-input[type="image"] {
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none; }
-
-input[type="file"] {
-  width: auto;
-  padding: initial;
-  line-height: initial;
-  border: initial;
-  background-color: transparent;
-  background-color: initial;
-  -webkit-box-shadow: none;
-  box-shadow: none; }
-
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  *overflow: visible; }
-
-select,
-input[type="file"] {
-  height: 28px;
-  *margin-top: 4px;
-  line-height: 28px; }
-
-select {
-  background-color: white;
-  font-size: 0.9rem; }
-
-select[multiple],
-select[size] {
-  height: auto; }
-
-textarea {
-  resize: vertical;
-  overflow: auto;
-  height: auto;
-  overflow: auto;
-  vertical-align: top; }
-
-input[type="hidden"] {
-  display: none; }
-
-.radio,
-.checkbox {
-  padding-left: 18px;
+.marketing h2 {
   font-weight: normal; }
 
-.radio input[type="radio"],
-.checkbox input[type="checkbox"] {
-  float: left;
-  margin-left: -18px; }
-
-.radio.inline,
-.checkbox.inline {
-  display: inline-block;
-  padding-top: 5px;
-  margin-bottom: 0;
-  vertical-align: middle; }
-
-.radio.inline + .radio.inline,
-.checkbox.inline + .checkbox.inline {
+.marketing .col-lg-4 p {
+  margin-right: 10px;
   margin-left: 10px; }
 
-input[disabled],
-select[disabled],
-textarea[disabled],
-input[readonly],
-select[readonly],
-textarea[readonly] {
-  -webkit-opacity: 0.5;
-  -moz-opacity: 0.5;
-  opacity: 0.5;
-  cursor: not-allowed; }
+/* Featurettes
+------------------------- */
+.featurette-divider {
+  margin: 80px 0;
+  /* Space out the Bootstrap <hr> more */ }
 
-input:focus,
-textarea:focus {
-  border-color: #ff944d, 40%;
-  outline: 0;
-  outline: thin dotted \9; }
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px; }
 
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus,
-select:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none; }
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px; }
 
-::-webkit-input-placeholder {
-  font-size: 0.9rem; }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px; }
 
-input:-moz-placeholder {
-  font-size: 0.9rem; }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0; }
 
-.help-block,
-.help-inline {
-  color: gray; }
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px; }
 
-.help-block {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4; }
+
+  .featurette-heading {
+    font-size: 50px; } }
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px; } }
+.navbar-collapse > ul.sub-menu {
+  top: 100%; }
+
+ul.sub-menu {
+  margin: 0;
+  padding: 0; }
+
+.sub-menu li {
   display: block;
-  margin-bottom: 0.75em; }
+  margin: 0;
+  padding: 0;
+                               /* only needed 
+if you don't have a reset */
+  position: relative;
+                            /* esto es necesario 
+con el fin de posicionar los submen├║s */ }
 
-.help-inline {
-  display: inline-block;
-  vertical-align: middle;
-  padding-left: 5px; }
+.sub-menu .current-menu-item a, .sub-menu .current_page_item a, .sub-menu
+a:hover {
+  background: #4b8ec7; }
 
-.form-inline input,
-.form-inline textarea,
-.form-inline select {
-  display: inline-block;
-  margin-bottom: 0; }
+ul.sub-menu {
+  /* esto va dirigido a todos los submen├║s */
+  display: none;
+  /* ocultar todos los submen├║s de la vista */
+  position: absolute; }
 
-.form-inline label {
-  display: inline-block; }
+ul.sub-menu li {
+  /* esto va dirigido a todos los submen├║s */
+  float: none;
+  /* sobreescribir menu hasta arriba */
+  width: 200px;
+                     /* establece el ancho que desea para sus 
+submen├║s. Esto debe coincidir con el valor que pusimos abajo */ }
 
-.form-inline .radio,
-.form-inline .checkbox,
-.form-inline .radio {
-  padding-left: 0;
-  margin-bottom: 0;
-  vertical-align: middle; }
-
-.form-inline .radio input[type="radio"],
-.form-inline .checkbox input[type="checkbox"] {
-  float: left;
-  margin-left: 0;
-  margin-right: 3px; }
-
-.form-search input,
-.form-search textarea,
-.form-search select {
-  display: inline-block;
-  margin-bottom: 0; }
-
-.form-search .search-query {
-  padding-left: 14px;
-  padding-right: 14px;
-  margin-bottom: 0; }
-
-.form-search label {
-  display: inline-block; }
-
-.form-search .radio,
-.form-search .checkbox,
-.form-inline .radio {
-  padding-left: 0;
-  margin-bottom: 0;
-  vertical-align: middle; }
-
-.form-search .radio input[type="radio"],
-.form-search .checkbox input[type="checkbox"] {
-  float: left;
-  margin-left: 0;
-  margin-right: 3px; }
-
-/**
-* Validamos los formularios que son "required":
-* http://coolvillage.es/ayuda-al-usuario-a-rellenar-formularios-con-css/
-*/
-input:required:focus:invalid {
-  background-color: #fef2e7;
-  border: 1px solid #fce4cf; }
-
-input:required:focus:valid {
-  background-color: #e9f5e9;
-  border: 1px solid #5bb75b; }
-
-/*------------------------------------*\
-    $IM├üGENES
-\*------------------------------------*/
-/*------------------------------------*\
-    $LINKS
-\*------------------------------------*/
-a {
+ul.sub-menu li a {
+  padding: 10px 10px;
+                        /* dar a nuestros enlaces del submen├║ 
+un bo */
+  display: block;
   text-decoration: none;
-  color: #ff944d; }
-  a:visited {
-    color: #ff944d; }
-  a:hover {
-    text-decoration: underline;
-    color: #ff751a; }
-  a:focus {
-    outline: thin dotted;
-    color: #ff751a; }
-  a:hover, a:active {
-    outline: 0; }
+  background-color: #337ab7;
+  color: white; }
 
-/*------------------------------------*\
-    $TIPOGRAF├ìA
-\*------------------------------------*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-family: inherit;
-  font-weight: bold;
-  color: inherit;
-  text-rendering: optimizelegibility; }
-  h1.altheader,
-  h2.altheader,
-  h3.altheader,
-  h4.altheader,
-  h5.altheader,
-  h6.altheader {
-    color: gray;
-    text-transform: uppercase; }
-
-h1 small,
-h2 small,
-h3 small {
-  font-weight: normal;
+.navbar-collapse ul li:hover > ul {
   display: block;
-  color: gray; }
-
-h1, .h1 {
-  margin-bottom: 0.75em;
-  font-size: 3.2rem;
-  line-height: 1.2; }
-
-h2, .h2 {
-  margin-bottom: 0.5em;
-  font-size: 2.4rem;
-  line-height: 1.2; }
-
-h3, .h3 {
-  margin-bottom: 0.375em;
-  font-size: 2.1rem;
-  line-height: 1.3; }
-
-h4, .h4 {
-  margin-bottom: 0.25em;
-  font-size: 1.8rem;
-  line-height: 1.25; }
-
-h5, .h5 {
-  margin-bottom: 0.25em;
-  font-size: 1.6rem;
-  line-height: 1; }
-
-h6, .h6 {
-  margin-bottom: 0.25em;
-  font-size: 1.4rem;
-  line-height: 1; }
-
-p,
-ol,
-ul,
-dl,
-address {
-  margin-bottom: 1.5em;
-  line-height: 1.5em; }
-
-.intro {
-  font-weight: bold; }
-
-small {
-  font-size: 0.8rem;
-  color: gray; }
-
-ul,
-ol {
-  margin: 0 0 1.5em 0;
-  padding: 0 0 0 24px; }
-
-li ul,
-li ol {
-  margin: 0; }
-
-blockquote {
-  margin: 0 0 1.5em 0;
-  padding-left: 24px;
-  border-left: 2px solid white;
-  font-family: Georgia, Times, "Times New Roman";
-  font-style: normal; }
-  blockquote p {
-    font-size: 1.5rem;
-    color: gray;
-    font-style: italic; }
-
-q {
-  quotes: none;
-  font-style: italic; }
-
-blockquote p::before,
-blockquote p::after,
-q:before,
-q:after {
-  content: ""; }
-
-cite {
-  font-style: normal; }
-
-dl,
-dd {
-  margin-bottom: 1.5em; }
-
-dt {
-  font-weight: bold; }
-
-.dl-horizontal dt {
-  float: left;
-  clear: left;
-  width: 20.25%;
-  text-align: right; }
-.dl-horizontal dd {
-  margin-left: 22.78%; }
-
-abbr[title] {
-  border-bottom: 1px dotted white;
-  cursor: help; }
-
-b, strong {
-  font-weight: bold; }
-
-dfn {
-  font-style: italic; }
-
-ins {
-  background-color: white;
-  color: #262626;
-  text-decoration: none; }
-
-mark {
-  background-color: yellow;
-  color: #262626; }
-
-pre,
-code,
-kbd,
-samp {
-  font-family: "Courier New", monospace;
-  font-size: 0.9rem;
-  line-height: 1.5em; }
-
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word; }
-
-sub,
-sup {
-  position: relative;
-  font-size: 0.8rem;
-  line-height: 0;
-  vertical-align: 1.5em; }
-
-sup {
-  top: -.5em; }
-
-sub {
-  bottom: -.25em; }
-
-hr {
-  clear: both;
-  display: block;
-  margin: 3em 0;
-  padding: 0;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid white; }
-
-/**
-* Layout del sitio
-**/
-/*------------------------------------*\
-    $SITIO
-\*------------------------------------*/
-@-webkit-viewport {
-  width: device-width; }
-@-moz-viewport {
-  width: device-width; }
-@-ms-viewport {
-  width: device-width; }
-@-o-viewport {
-  width: device-width; }
-@viewport {
-  width: device-width; }
-html {
-  background: white;
-  font-size: 100%;
-  -webkit-overflow-scrolling: touch;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: transparent;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.5em;
-  color: #262626; }
-
-/**
-* A partir de aqu├¡ es donde debes escribir los estilos de posicionamiento
-* y detalles que forman tu web. Disfruta!
-*/
-.header {
-  padding: 12px;
-  background-color: #404040; }
-  .header h1, .header h2 {
-    color: white; }
-
-.container {
-  padding: 12px; }
-  @media (min-width: 56.25em) {
-    .container {
-      padding: 24px; } }
-
-@media (min-width: 48em) {
-  .container__item {
-    display: inline-block;
-    width: 48%;
-    vertical-align: top;
-    background-color: #e6e6e6;
-    border: 1px solid #bfbfbf;
-    border-radius: 2px;
-    padding: 12px; } }
-
-.page .container__item {
-  width: 90%;
-  margin: 0 auto;
-  display: block; }
-.page.sidebar {
-  width: 68%;
-  display: table-cell; }
-
-.table {
-  display: table; }
-
-aside {
-  display: table-cell;
-  width: 72%; }
-
-.footer-negro {
-  background-color: #404040; }
-  .footer-negro li {
-    display: inline-block;
-    color: white; }
-
-.blog {
-  background-color: #ff944d; }
-
-.header {
-  padding: 24px;
-  background-color: #404040; }
-  .header h1, .header h2 {
-    color: white; }
-
-.content {
-  padding: 12px; }
-  @media (min-width: 48em) {
-    .content article {
-      display: inline-block;
-      width: 30%; } }
-
-.sidebar {
-  display: table; }
-
-.sidebar__item {
-  display: table-cell;
-  padding: 24px; }
-  .sidebar__item a::before {
-    content: "| "; }
-
-/*------------------------------------*\
-    $NAVEGACI├ôN
-\*------------------------------------*/
-/**
-*
-* La sem├íntica va como sigue:
-
-    <input type="checkbox" class="checkbox__hack" id="checkbox__hack">
-    <label for="checkbox__hack" class="checkbox-hack__label"></label>
-    <!-- OMG NO SEMANTIC HTML, well, it help us to avoid JS in the menu slide in mobile -->
-
-    <nav class="nav--top">
-        <ul class="nav--top__list">
-            <li><a href="">item</a></li>
-            <li><a href="">item</a></li>
-            <li><a href="">item</a></li>
-            <li><a href="">item</a></li>
-            <li><a href="">item</a></li>
-        </ul>
-    </nav>
-
-* Y no te olvides de modificar las variables en el archivo de variables ($nav-**)
-*/
-.nav__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background-color: #dbd879;
-  box-shadow: inset -100px -50px 100px 100px rgba(0, 0, 0, 0.2);
-  /*
-  * Usamos VW porque con % tomar├¡a el tama├▒o del contenedor,
-  * que es $nav-width (unos 48px) y no se ve na' e n├í
-  */
-  width: 100%; }
-  .nav__list li {
-    display: table-cell;
-    vertical-align: middle;
-    border: 1px olive;
-    text-align: center; }
-    .nav__list li a {
-      color: black; }
-
-/**
-* Abstracciones y objetos
-**/
-/*------------------------------------*\
-    $BOTONES
-\*------------------------------------*/
-/*
- * Definimos los botones y sus variantes
- */
-/**
-* .btn es la clase principal para definir un bot├│n
-*/
-.btn {
-  display: inline-block;
-  line-height: 2.25em;
-  color: #262626;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1rem;
-  white-space: nowrap;
-  background-color: #ffa366;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 1em;
-  padding-left: 1em;
-  border-radius: 2px;
-  	/**
-   	* Nadie quiere un bot├│n con texto subrayado cuando
-   	* hacemos hover.
-   	*/ }
-  .btn:hover {
-    text-decoration: none; }
-  .btn:active, .btn:focus {
-    outline: none; }
-  .btn:visited {
-    color: #262626; }
-
-/*------------------------------------*\
-    $BOTONES-VARIANTES
-\*------------------------------------*/
-/**
- * Variantes de los botones: color para dar sensaciones.
- *
- */
-/**
-* Inputs con estilo de botones
-*/
-input[type="submit"].btn:hover {
-  border-color: #ff8533; }
-
-/**
-* Bot├│n no disponible
-*/
-.btn--disabled {
-  -webkit-opacity: 0.5;
-  -moz-opacity: 0.5;
-  opacity: 0.5;
-  cursor: default; }
-
-/**
-* Bot├│n de Error
-*/
-.btn--error {
-  background-color: #da4f49;
-  color: #48110f; }
-  .btn--error:hover {
-    color: #fcf3f3; }
-  .btn--error:visited {
-    color: #48110f; }
-
-/**
-* Bot├│n de Info
-*/
-.btn--info {
-  background-color: #a5dddf;
-  color: #308588; }
-  .btn--info:hover {
-    color: white; }
-  .btn--info:visited {
-    color: #308588; }
-
-/**
-* Bot├│n principal
-*/
-.btn--primary {
-  background-color: #ff944d;
-  color: white; }
-  .btn--primary:hover {
-    color: white; }
-  .btn--primary:visited {
-    color: #803300; }
-
-/**
-* Bot├│n de OK
-*/
-.btn--success {
-  background-color: #5bb75b;
-  color: #153115; }
-  .btn--success:hover {
-    color: #e9f5e9; }
-  .btn--success:visited {
-    color: #153115; }
-
-/**
-* Bot├│n de advertencia
-*/
-.btn--warning {
-  background-color: #da4f49;
-  color: #48110f; }
-  .btn--warning:hover {
-    color: #fcf3f3; }
-  .btn--warning:visited {
-    color: #48110f; }
-
-.btn--inactive,
-.btn--inactive:hover,
-.btn--inactive:active,
-.btn--inactive:focus {
-  -webkit-opacity: 0.5;
-  -moz-opacity: 0.5;
-  opacity: 0.5;
-  cursor: default; }
-
-/*------------------------------------*\
-    $BOTONES-TAMA├æOS
-\*------------------------------------*/
-/**
- * Variantes de los botones por tama├▒o.
- *
- */
-.btn--mini {
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-  line-height: 1.5; }
-
-.btn--small {
-  padding-right: 1.5em;
-  padding-left: 1.5em;
-  line-height: 2; }
-
-.btn--large {
-  padding-right: 3em;
-  padding-left: 3em;
-  line-height: 3; }
-
-/*------------------------------------*\
-    $BOTONES-GRUPOS
-\*------------------------------------*/
-/**
- * Con esta clase podemos agrupar los botones
- * en grupos horizontales.
- *
- */
-.btn--group {
-  position: relative;
-  *margin-left: .3em; }
-
-.btn--group .btn {
-  position: relative;
-  border-radius: 0;
-  float: left;
-  margin-left: -1px; }
-
-.btn--group .btn:first-child {
-  margin-left: 0;
-  -webkit-border-top-right-radius: 0;
-  -webkit-border-bottom-right-radius: 0;
-  -webkit-border-bottom-left-radius: 2px;
-  -webkit-border-top-left-radius: 2px;
-  -moz-border-radius-topright: 0;
-  -moz-border-radius-bottomright: 0;
-  -moz-border-radius-bottomleft: 2px;
-  -moz-border-radius-topleft: 2px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box; }
-
-.btn--group .btn:last-child {
-  -webkit-border-top-right-radius: 2px;
-  -webkit-border-bottom-right-radius: 2px;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-top-left-radius: 0;
-  -moz-border-radius-topright: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-topleft: 0;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box; }
-
-.btn--group .btn.large:first-child {
-  margin-left: 0;
-  -webkit-border-top-right-radius: 2px;
-  -webkit-border-bottom-right-radius: 0;
-  -webkit-border-bottom-left-radius: 2px;
-  -webkit-border-top-left-radius: 0;
-  -moz-border-radius-topright: 2px;
-  -moz-border-radius-bottomright: 0;
-  -moz-border-radius-bottomleft: 2px;
-  -moz-border-radius-topleft: 0;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 0;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box; }
-
-.btn--group .btn.large:last-child {
-  -webkit-border-top-right-radius: 0;
-  -webkit-border-bottom-right-radius: 2px;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-top-left-radius: 2px;
-  -moz-border-radius-topright: 0;
-  -moz-border-radius-bottomright: 2px;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-topleft: 2px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 2px;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box; }
-
-/*------------------------------------*\
-    $TEXTURAS
-\*------------------------------------*/
-.alert {
-  margin-bottom: 1.5em;
-  padding: 8px 35px 8px 14px;
-  background-color: #fce4cf;
-  border: 1px solid #f6ae6f;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
-  color: #904809;
-  border-radius: 2px; }
-  .alert .alert--heading {
-    color: inherit; }
-  .alert .close {
-    position: relative;
-    top: -2px;
-    right: -21px;
-    float: right;
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 18px;
-    color: inherit; }
-
-.alert--success {
-  background-color: #c5e6c5;
-  border-color: #a2d6a2;
-  color: #347834; }
-
-.alert--warning {
-  background-color: #f4cac8;
-  border-color: #eba19e;
-  color: #9d2520; }
-
-.alert--error {
-  background-color: #f4cac8;
-  border-color: #eba19e;
-  color: #da4f49; }
-
-.alert--info {
-  background-color: #cbebec;
-  border-color: #7fcfd2;
-  color: #236062; }
-
-.alert--inverse {
-  background-color: #242786;
-  border-color: black;
-  color: white; }
-
-.alert--block {
-  padding-top: 14px;
-  padding-bottom: 14px; }
-  .alert--block .alert--heading {
-    margin-bottom: 0.1875em;
-    font-size: inherit;
-    font-weight: bold; }
-  .alert--block > p,
-  .alert--block > ul {
-    margin-bottom: 0; }
-  .alert--block p + p {
-    margin-top: 5px; }
-
-.badge {
-  padding: 1px 9px 2px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  white-space: nowrap;
-  border-radius: 2px;
-  color: #262626;
-  background-color: #ff944d;
-  -webkit-transition: background-color 0.25s 0 linear;
-  -moz-transition: background-color 0.25s 0 linear;
-  -ms-transition: background-color 0.25s 0 linear;
-  -o-transition: background-color 0.25s 0 linear;
-  transition: background-color 0.25s 0 linear; }
-  .badge:hover {
-    color: #262626;
-    text-decoration: none;
-    cursor: pointer; }
-
-.badge--error {
-  background-color: #da4f49; }
-  .badge--error:hover {
-    background-color: #9d2520; }
-
-.badge--warning {
-  background-color: #da4f49; }
-  .badge--warning:hover {
-    background-color: #9d2520; }
-
-.badge--success {
-  background-color: #a5dddf; }
-  .badge--success:hover {
-    background-color: #5ac1c4; }
-
-.badge--info {
-  background-color: #a5dddf;
-  color: #236062; }
-  .badge--info:hover {
-    background-color: #5ac1c4; }
-
-.badge--inverse {
-  background-color: #a5dddf;
-  color: white; }
-  .badge--inverse:hover {
-    background-color: #5ac1c4;
-    color: white; }
-
-.well {
-  min-height: 21px;
-  padding: 11px;
-  border-radius: 2px;
-  margin-bottom: 1.5em;
-  background-color: white;
-  border: 1px solid #ffc299;
-  -webkit-box-shadow: inset 0 1px 10px #ffe0cc;
-  box-shadow: inset 0 1px 10px #ffe0cc; }
-  .well p:last-child {
-    margin-bottom: 0; }
-
-.well--large {
-  padding: 22px; }
-
-.well--small {
-  padding: 6px; }
-
-::-moz-selection {
-  background-color: white;
-  color: #ff944d;
-  text-shadow: none; }
-
-::selection {
-  background-color: white;
-  color: #ff944d;
-  text-shadow: none; }
+                       /* mostrar submen├║ cuando el rat├│n pase 
+por encima del men├║ principal */ }
+
+ul.sub-menu li ul {
+  left: 100%;
+                   /*  esto debe coincidir con el ancho del men├║ 
+de arriba -- width + padding + borders */
+  top: 0;
+               /* esto asegura que el submen├║ comience 
+en consonancia con el men├║ superior */
+  background-color: #4b8ec7;
+  border-left: 2px solid #ccc; }
 
 /*# sourceMappingURL=style.css.map */

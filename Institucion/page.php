@@ -1,9 +1,8 @@
 <?php get_header( );?>
 		<body>
-		<div class="header">
-		<h1><?php bloginfo('name')?></h1>
-		<h2><?php bloginfo('description') ?></h2>
-		</div>
+		  <?php include (TEMPLATEPATH . "/template/header.php");?>
+             <?php include (TEMPLATEPATH . "/template/carousel.php");?>
+            		<h1><?php bloginfo('name')?></h1>
 <section class="page">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<article class="container__item">

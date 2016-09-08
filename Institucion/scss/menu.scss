@@ -1,0 +1,57 @@
+$azul: #337ab7;
+$azulClaro: #4b8ec7;
+$blanco: white;
+$gris: #ccc;
+
+.navbar-collapse >  ul.sub-menu {
+    top:100%;
+}
+ul.sub-menu {
+        margin: 0; padding: 0; }
+.sub-menu li   {
+        display: block;
+        margin: 0; padding: 0; /* only needed 
+if you don't have a reset */
+        position: relative; /* esto es necesario 
+con el fin de posicionar los submenús */
+}
+.sub-menu .current-menu-item a, .sub-menu .current_page_item a, .sub-menu 
+ a:hover {
+        background: $azulClaro;
+}
+
+
+
+ul.sub-menu { /* esto va dirigido a todos los submenús */
+        display: none; /* ocultar todos los submenús de la vista */
+        position: absolute;
+        
+}
+ul.sub-menu li { /* esto va dirigido a todos los submenús */
+        float: none; /* sobreescribir menu hasta arriba */
+        width: 200px; /* establece el ancho que desea para sus 
+ submenús. Esto debe coincidir con el valor que pusimos abajo */
+}
+ul.sub-menu li a {
+        padding: 10px 10px; /* dar a nuestros enlaces del submenú 
+    un bo */
+      display: block;
+    text-decoration: none;
+    background-color: $azul;
+    color: $blanco;
+}
+
+.navbar-collapse ul li:hover > ul {
+        display: block; /* mostrar submenú cuando el ratón pase 
+ por encima del menú principal */
+}
+
+
+ul.sub-menu li ul {
+        left: 100%; /*  esto debe coincidir con el ancho del menú 
+ de arriba -- width + padding + borders */
+        top: 0; /* esto asegura que el submenú comience 
+ en consonancia con el menú superior */
+    background-color: $azulClaro;
+    border-left: 2px solid $gris;
+}

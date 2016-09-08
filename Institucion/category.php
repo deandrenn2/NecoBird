@@ -1,6 +1,11 @@
 	<?php get_header(); ?>
-		<section class="page">
-			
+  <?php include (TEMPLATEPATH . "/template/header.php");?>
+             <?php include (TEMPLATEPATH . "/template/carousel.php");?>
+            		<h1><?php bloginfo('name')?></h1>
+	<div class="sidebar">
+		<?php dynamic_sidebar('sidebar-header'); ?>
+		</div>
+		<section class="page">		
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<article>
 					<a href="<?php the_permalink(); ?>"> <h3> <?php the_title(); ?> </h3></a>

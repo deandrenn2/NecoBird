@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 <body>
+        <?php include (TEMPLATEPATH . "/template/header.php");?>
+             <?php include (TEMPLATEPATH . "/template/carousel.php");?>
+            		<h1><?php bloginfo('name')?></h1>
 		
 	
 				<?php rewind_posts(); ?>
